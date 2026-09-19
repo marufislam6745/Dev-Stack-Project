@@ -8,7 +8,7 @@ export function Nav() {
 
     return (
         <div className="sticky top-0 z-50">
-            <div className="w-360px md:w-300 mx-auto py-4 flex justify-between items-center bg-white">
+            <div className="md:w-300 mx-auto py-4 flex justify-between items-center bg-white">
                 <div className="md:hidden flex items-center">
                     <button onClick={()=>setNav(!nav)} className="text-gray-600 hover:text-fuchsia-700">
                         {nav?(<svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -19,7 +19,7 @@ export function Nav() {
                     </button>
                 </div>
                 <div className="absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0">
-                    <img className="w-18 md:w-32" src={logo} alt="photo" />
+                    <img src={logo} alt="photo" />
                 </div>
                 <div className="hidden md:flex">
                     <ul className="flex justify-center items-center gap-5">
