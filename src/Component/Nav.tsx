@@ -1,29 +1,28 @@
+
 import { useState } from "react"
 import logo from "../assets/logo.png"
 
 
 export function Nav() {
-    const [menu, setMenu] = useState<boolean>(false)
+    const [nav, setNav] = useState<boolean>(false)
 
     return (
-        <div>
-            <div className="w-300 mx-auto py-4 flex justify-between items-center sticky top-0 z-50 bg-white">
-                <button
-                    onClick={() => setMenu(!menu)}
-                    className="sm:hidden flex flex-col gap-1.5"
-                >
-                    <span className="w-8 h-1 bg-gray-500 rounded"></span>
-                    <span className="w-8 h-1 bg-gray-500 rounded"></span>
-                    <span className="w-8 h-1 bg-gray-500 rounded"></span>
-                    <span className="w-8 h-1 bg-gray-500 rounded"></span>
-                    <span className="w-8 h-1 bg-gray-500 rounded"></span>
-                </button>
-
-                <div>
+        <div className="sticky top-0 z-50">
+            <div className="w-300 mx-auto py-4 flex justify-between items-center bg-white">
+                <div className="md:hidden flex items-center">
+                    <button onClick={()=>setNav(!nav)} className="text-gray-600 hover:text-fuchsia-700">
+                        {nav?(<svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18l18 6M6 6l12 12"/>
+                        </svg>):(<svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>)}
+                    </button>
+                </div>
+                <div className="absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0">
                     <img src={logo} alt="photo" />
                 </div>
-                <div>
-                    <ul className="hidden sm:flex justify-center items-center gap-5">
+                <div className="hidden md:flex">
+                    <ul className="flex justify-center items-center gap-5">
                         <li className="text-sm text-gray-600 hover:text-fuchsia-700 cursor-pointer">Home</li>
                         <li className="text-sm text-gray-600 hover:text-fuchsia-700 cursor-pointer">Technology</li>
                         <li className="text-sm text-gray-600 hover:text-fuchsia-700 cursor-pointer">Project</li>
@@ -31,22 +30,23 @@ export function Nav() {
                         <li className="text-sm text-gray-600 hover:text-fuchsia-700 cursor-pointer">Contact</li>
                     </ul>
                 </div>
-                <div className="flex items-center gap-2 sm:4">
-                    <button className="py-2 px-4 rounded-xl sm:text-base">Sign in</button>
-                    <button className="bg-linear-to-r from-fuchsia-600 to-blue-500 py-2 px-4 rounded-xl text-gray-50 sm:text-base">Sign up</button>
+                <div className="flex items-center gap-4">
+                    <button className="py-2 px-3 md:px-4 md:text-sm rounded-xl">Sign in</button>
+                    <button className="bg-linear-to-r from-fuchsia-600 to-blue-500 py-2 px-3 md:px-4 md:text-sm rounded-xl text-gray-50">Sign up</button>
                 </div>
             </div>
-            {menu && (
-                <div className="sm:hidden mt-5 pt-4">
-                    <ul className="flex flex-col gap-4 text-center">
-                        <li className="text-gray-600 hover:text-pink-600 cursor-pointer">Home</li>
-                        <li className="text-gray-600 hover:text-pink-600 cursor-pointer">Technology</li>
-                        <li className="text-gray-600 hover:text-pink-600 cursor-pointer">Project</li>
-                        <li className="text-gray-600 hover:text-pink-600 cursor-pointer">About</li>
-                        <li className="text-gray-600 hover:text-pink-600 cursor-pointer">Contact</li>
-                    </ul>
-                </div>
-            )}
+            {nav && (
+          <div className="md:hidden border-t bg-white py-4 px-6 shadow-lg">
+            <ul className="flex flex-col gap-4 text-center">
+              <li onClick={()=>setNav(false)} className="text-gray-600 hover:text-pink-600 cursor-pointer">Home</li>
+              <li onClick={()=>setNav(false)} className="text-gray-600 hover:text-pink-600 cursor-pointer">Technology </li>
+              <li onClick={()=>setNav(false)} className="text-gray-600 hover:text-pink-600 cursor-pointer">Project</li>
+              <li onClick={()=>setNav(false)} className="text-gray-600 hover:text-pink-600 cursor-pointer">About</li>
+              <li onClick={()=>setNav(false)} className="text-gray-600 hover:text-pink-600 cursor-pointer">Contact</li>
+            </ul>
+          </div>
+        )}
+
         </div>
     )
 }
