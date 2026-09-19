@@ -7,7 +7,7 @@ export function Nav() {
 
     return (
         <div>
-            <div className="w-300 mx-auto py-4 flex justify-between items-center sticky top-0 bg-white">
+            <div className="w-300 mx-auto py-4 flex justify-between items-center sticky top-0 z-50 bg-white">
                 <button
                     onClick={() => setMenu(!menu)}
                     className="sm:hidden flex flex-col gap-1.5"
