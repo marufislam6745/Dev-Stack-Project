@@ -8,7 +8,7 @@ export function Nav() {
 
     return (
         <div className="sticky top-0 z-50">
-            <div className="w-300 mx-auto py-4 flex justify-between items-center bg-white">
+            <div className="w-360px md:w-300 mx-auto py-4 flex justify-between items-center bg-white">
                 <div className="md:hidden flex items-center">
                     <button onClick={()=>setNav(!nav)} className="text-gray-600 hover:text-fuchsia-700">
                         {nav?(<svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -19,7 +19,7 @@ export function Nav() {
                     </button>
                 </div>
                 <div className="absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0">
-                    <img src={logo} alt="photo" />
+                    <img className="w-18 md:w-32" src={logo} alt="photo" />
                 </div>
                 <div className="hidden md:flex">
                     <ul className="flex justify-center items-center gap-5">
@@ -30,9 +30,9 @@ export function Nav() {
                         <li className="text-sm text-gray-600 hover:text-fuchsia-700 cursor-pointer">Contact</li>
                     </ul>
                 </div>
-                <div className="flex items-center gap-4">
-                    <button className="py-2 px-3 md:px-4 md:text-sm rounded-xl">Sign in</button>
-                    <button className="bg-linear-to-r from-fuchsia-600 to-blue-500 py-2 px-3 md:px-4 md:text-sm rounded-xl text-gray-50">Sign up</button>
+                <div className="flex items-center">
+                    <button className="py-1 px-3 md:px-4 rounded-xl ">Sign in</button>
+                    <button className="bg-linear-to-r from-fuchsia-600 to-blue-500 py-1 px-3 md:px-4 md:py-2 rounded-xl text-gray-50">Sign up</button>
                 </div>
             </div>
             {nav && (
